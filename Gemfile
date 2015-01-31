@@ -4,6 +4,7 @@ gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
 gem 'rails'
+gem 'bootstrap-sass',       '3.2.0.0'
 gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
