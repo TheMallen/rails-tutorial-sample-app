@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class UsersSignupTest < ActionDispatch::IntegrationTest
-  
+
   test "invalid sign up data shouldn't create a user" do
     get signup_path
     assert_no_difference 'User.count' do
@@ -14,7 +14,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     assert_template 'users/new'
   end
-  
+
   test "valid sign up data should create a user" do
     get signup_path
     assert_difference 'User.count', 1 do
@@ -25,6 +25,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
         password_confirmation: "password"
       }
     end
+    follow_redirect!
     assert_template 'users/show'
   end
 end
