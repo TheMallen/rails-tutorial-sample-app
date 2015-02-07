@@ -28,4 +28,15 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_template 'users/show'
   end
+
+  test "valid sign up data should log in the user" do
+    get signup_path
+    post users_path, user: {
+        name: "Another valid name",
+        email: "someOther@email.com",
+        password:"password",
+        password_confirmation: "password"
+      }
+    assert is_logged_in?
+  end
 end
